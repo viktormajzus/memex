@@ -1,0 +1,13 @@
+# Build and install artifacts
+/out/
+
+# Visual Studio workspace files
+.vs/
+
+# Editor/backup/temp files
+*~
+*.bak
+*.old
+*.orig
+*.rej
+*.swp
