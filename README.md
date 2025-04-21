@@ -16,7 +16,7 @@
 ---
 
 ## Planned Features
-- Module enumeration
+- ~Module enumeration~ Done
 - Pattern scanning
 - Page protection modification
 - Buffered writing with rollback - for safe patching
