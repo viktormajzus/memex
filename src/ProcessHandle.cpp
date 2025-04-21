@@ -61,6 +61,11 @@ bool ProcessHandle::isAttached() const
   return m_handle != nullptr;
 }
 
+const HANDLE& ProcessHandle::native() const
+{
+  return m_handle;
+}
+
 std::expected<void, memex::Error> ProcessHandle::attach(tstring_view processName)
 {
   auto processId{ utility::FindPidByName(processName) };

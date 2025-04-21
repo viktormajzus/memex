@@ -29,6 +29,8 @@ public:
 
   bool isAttached() const;
 
+  const HANDLE& native() const;
+
 #ifdef UNICODE
   using tstring_view = std::wstring_view;
 #else

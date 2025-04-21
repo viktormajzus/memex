@@ -3,6 +3,7 @@
 #include <Windows.h>
 #include <TlHelp32.h>
 #include <processthreadsapi.h>
+#include <cassert>
 
 #include <cstdint>
 #include <cstddef>
