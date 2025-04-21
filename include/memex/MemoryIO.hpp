@@ -54,16 +54,6 @@ public:
   }
 
   template<typename T>
-  std::size_t Write(RemotePtr<T> address, const T& value)
-  {
-    SIZE_T bytesWritten{};
-    WriteProcessMemory(m_process->native(),
-                       reinterpret_cast<void*>(address.address()),
-                       &value, sizeof(T), &bytesWritten);
-    return static_cast<std::size_t>(bytesWritten);
-  }
-
-  template<typename T>
   std::size_t Write(RemotePtr<T> dst, const void* src, std::size_t size)
   {
     SIZE_T bytesWritten{};
@@ -93,4 +83,23 @@ public:
   }
 
   void Fill(RemotePtr<void> dst, std::uint8_t value, std::size_t size);
+
+  template<typename T>
+  [[nodiscard]]
+  RemotePtr<T> ResolvePointerChain(RemotePtr<void> base, std::initializer_list<std::ptrdiff_t> offsets)
+  {
+    if (offsets.size() == 0)
+      return RemotePtr<T>(base.address());
+
+    std::uintptr_t current = Read<std::uintptr_t>(RemotePtr<std::uintptr_t>(base.address()));
+
+    for (auto it = offsets.begin(); it != offsets.end() - 1; ++it)
+    {
+      current += *it;
+      current = Read<std::uintptr_t>(RemotePtr<std::uintptr_t>(current));
+    }
+
+    current += *(offsets.end() - 1);
+    return RemotePtr<T>(current);
+  }
 };

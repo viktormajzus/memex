@@ -6,6 +6,7 @@
 
 #include <memex/access_mask.hpp>
 #include <memex/error.hpp>
+#include <memex/typed.hpp>
 
 class ProcessHandle
 {
@@ -31,13 +32,9 @@ public:
 
   const HANDLE& native() const;
 
-#ifdef UNICODE
-  using tstring_view = std::wstring_view;
-#else
-  using tstring_view = std::string_view;
-#endif
+  std::uint32_t processId() const;
 
-  std::expected<void, memex::Error> attach(tstring_view processName);
+  std::expected<void, memex::Error> attach(typed::tstring_view processName);
 
   std::expected<void, memex::Error> terminate(unsigned int exitCode);
 };

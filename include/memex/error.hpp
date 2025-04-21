@@ -12,7 +12,10 @@ namespace memex
     TerminateFailed,
     InvalidHandle,
     ProcessNotFound,
-    ProcFirstFailed
+    ProcFirstFailed,
+    SnapshotFailed,
+    ModFirstFailed,
+    ModuleNotFound
   };
 
   constexpr std::string_view parseError(Error error)
@@ -27,6 +30,9 @@ namespace memex
     case Error::InvalidHandle: return "Invalid handle";
     case Error::ProcessNotFound: return "Process not found";
     case Error::ProcFirstFailed: return "Process32First failed";
+    case Error::SnapshotFailed: return "Failed to create Toolhelp snapshot";
+    case Error::ModFirstFailed: return "Module32First failed";
+    case Error::ModuleNotFound: return "Module not found";
     default: return "Unknown error";
     }
   }

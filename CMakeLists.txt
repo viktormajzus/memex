@@ -68,7 +68,7 @@ install(DIRECTORY include/ DESTINATION include)
 # Uncomment for testing #
 #########################
 
-# add_executable(test_runner src/memex.cpp)
-# target_include_directories(test_runner PRIVATE ${CMAKE_SOURCE_DIR}/include)
-# target_link_libraries(test_runner PRIVATE memex)
+ add_executable(test_runner src/memex.cpp)
+ target_include_directories(test_runner PRIVATE ${CMAKE_SOURCE_DIR}/include)
+ target_link_libraries(test_runner PRIVATE memex)
 

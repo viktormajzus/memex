@@ -42,7 +42,7 @@
       "displayName": "x86 Debug",
       "inherits": "windows-base",
       "architecture": {
-        "value": "x86",
+        "value": "Win32",
         "strategy": "set"
       },
       "cacheVariables": {
@@ -54,7 +54,7 @@
       "displayName": "x86 Release",
       "inherits": "windows-base",
       "architecture": {
-        "value": "x86",
+        "value": "Win32",
         "strategy": "set"
       },
       "cacheVariables": {

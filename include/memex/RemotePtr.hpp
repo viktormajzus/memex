@@ -6,7 +6,7 @@ template<typename T>
 class RemotePtr
 {
 private:
-  std::uintptr_t m_address{ nullptr };
+  std::uintptr_t m_address{};
 
 public:
   RemotePtr() = default;

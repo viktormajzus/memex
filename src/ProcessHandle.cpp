@@ -66,7 +66,12 @@ const HANDLE& ProcessHandle::native() const
   return m_handle;
 }
 
-std::expected<void, memex::Error> ProcessHandle::attach(tstring_view processName)
+std::uint32_t ProcessHandle::processId() const
+{
+  return m_processId;
+}
+
+std::expected<void, memex::Error> ProcessHandle::attach(typed::tstring_view processName)
 {
   auto processId{ utility::FindPidByName(processName) };
   if (!processId)
