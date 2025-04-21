@@ -1,0 +1,13 @@
+digraph "MemoryIO::Read"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  rankdir="LR";
+  Node1 [id="Node000001",label="MemoryIO::Read",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip="Wrapper for ReadProcessMemory."];
+  Node1 -> Node2 [id="edge1_Node000001_Node000002",color="steelblue1",style="solid",tooltip=" "];
+  Node2 [id="Node000002",label="RemotePtr::address",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_remote_ptr.html#a6b641b898436483289d32e117ae2fc0e",tooltip="Getter for the address."];
+  Node1 -> Node3 [id="edge2_Node000001_Node000003",color="steelblue1",style="solid",tooltip=" "];
+  Node3 [id="Node000003",label="ProcessHandle::native",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_process_handle.html#a2cda675cee2e5d6834d9143f080a80da",tooltip="This function returns a raw handle to the process."];
+}
