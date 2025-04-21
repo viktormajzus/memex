@@ -2,7 +2,7 @@
 
 #include "pch.hpp"
 
-std::expected<std::uint32_t, memex::Error> utility::FindPidByName(tstring_view processName)
+std::expected<std::uint32_t, memex::Error> utility::FindPidByName(typed::tstring_view processName)
 {
   HANDLE snapshot{ CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, 0) };
   if (snapshot == INVALID_HANDLE_VALUE)
@@ -11,7 +11,10 @@ std::expected<std::uint32_t, memex::Error> utility::FindPidByName(tstring_view p
   PROCESSENTRY32 processEntry{ .dwSize = sizeof(processEntry) };
   
   if (!Process32First(snapshot, &processEntry))
+  {
+    CloseHandle(snapshot);
     return std::unexpected(memex::Error::ProcFirstFailed);
+  }
 
   do
   {

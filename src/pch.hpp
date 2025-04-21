@@ -13,3 +13,6 @@
 #include <array>
 #include <vector>
 #include <expected>
+#include <optional>
+#include <algorithm>
+#include <iterator>

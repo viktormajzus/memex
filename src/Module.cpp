@@ -10,6 +10,17 @@ Module::Module(const ProcessHandle& process, typed::tstring_view moduleName)
 
 }
 
+Module::Module(const ProcessHandle& process,
+               const RemotePtr<void>& baseAddress,
+               std::size_t size, typed::tstring_view name)
+  : m_process{ &process }
+  , m_baseAddress{ baseAddress }
+  , m_size{ size }
+  , m_name{ name }
+{
+
+}
+
 std::expected<Module, memex::Error> Module::Create(const ProcessHandle& process, typed::tstring_view moduleName)
 {
   assert(process.isAttached() && "Process must be attached");
@@ -47,7 +58,10 @@ std::expected<RemotePtr<void>, memex::Error> Module::GetModuleBaseAddress()
 
   MODULEENTRY32 moduleEntry{ .dwSize = sizeof(moduleEntry) };
   if (!Module32First(snapshot, &moduleEntry))
+  {
+    CloseHandle(snapshot);
     return std::unexpected(memex::Error::ModFirstFailed);
+  }
 
   do
   {

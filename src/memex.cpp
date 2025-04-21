@@ -1,3 +1,10 @@
+/*****************************************************************//**
+ * \file   memex.cpp
+ * \brief  Testing file. Check CMakeLists if you want to run tests in main().
+ * 
+ * \author Viktor M.
+ * \date   April 2025
+ *********************************************************************/
 #include <memex/memex.hpp>
 
 #include "pch.hpp"

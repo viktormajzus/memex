@@ -25,6 +25,10 @@ private:
   Module(const ProcessHandle &process, typed::tstring_view moduleName);
 
 public:
+  explicit Module(const ProcessHandle& process,
+                  const RemotePtr<void>& baseAddress,
+                  std::size_t size,
+                  typed::tstring_view name);
   /**
    * @brief Creates a Module instance.
    *
