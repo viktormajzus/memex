@@ -3,6 +3,10 @@
 
 namespace memex
 {
+  /**
+   * @brief Enum representing different access masks for process memory operations.
+   *
+   */
   enum class AccessMask : DWORD
   {
     Read = PROCESS_VM_READ,
