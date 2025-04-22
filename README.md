@@ -67,3 +67,11 @@ RemotePtr<void> base = mod.base() + 0x10f4f4;
 RemotePtr<int> address = mem.ResolvePointerChain<int>(base, {0x374, 0x14, 0});
 mem.Write(address, 1337);
 ```
+
+---
+
+## Disclaimer
+
+This project is intended for educational and research purposes only.
+
+See [DISCLAIMER.md](./DISCLAIMER.md) for full legal details.
