@@ -12,6 +12,7 @@
 #pragma once
 #include <memex/access_mask.hpp>
 #include <memex/error.hpp>
+#include <memex/typed.hpp>
 
 #include <memex/utility.hpp>
 
@@ -19,3 +20,6 @@
 #include <memex/ProcessHandle.hpp>
 #include <memex/MemoryIO.hpp>
 #include <memex/Module.hpp>
+#include <memex/ModuleList.hpp>
+#include <memex/MemoryRegion.hpp>
+#include <memex/MemoryMap.hpp>
