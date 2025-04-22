@@ -12,6 +12,7 @@
 - MemoryIO class - responsible for memory operations (RPM/WPM)
 - Module class - responsible for storing module information
 - x86 and x64 support
+- Memory Region Mapping
 
 ---
 
