@@ -45,6 +45,8 @@ public:
    */
   std::uintptr_t address() const { return m_address; };
 
+  operator std::uintptr_t() const { return m_address; };
+
   // Operator overloads
   RemotePtr<T> operator+(std::ptrdiff_t offset) const
   {
