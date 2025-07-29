@@ -68,6 +68,10 @@ RemotePtr<int> address = mem.ResolvePointerChain<int>(base, {0x374, 0x14, 0});
 mem.Write(address, 1337);
 ```
 
+For more information, please visit the documentation:
+
+viktormajzus.github.io/memex/
+
 ---
 
 ## Disclaimer
